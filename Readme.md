@@ -4,18 +4,16 @@ From an original idea :
 https://dhwaneetbhatt.com/blog/run-docker-without-docker-desktop-on-macos
 
 ## How to
-The initial install is split into 2 file `firstInstall_1.sh` and `firstInstall_2.sh`
+The initial install is split into 2 file `masOsPrerequisite.sh` and `macOsConfig.sh`
 
-`firstInstall_1.sh` is only for virtual box, as you will need to authorize it on your MacOs preferences after the installation.
-
-After you can call `firstInstall_2.sh`. This script will install all the dependencies
- - vagrant + addon
- - docker and docker-compose
+`masOsPrerequisite.sh` is for all prerequisite (virtual box, vagrant and docker). You will probably need to authorize virtual box in your macOS preferences after the installation. 
 
 After installing all dependancies the script will create the vm using vagrant
 And in a last step the script will configure your local machine to mao docker, docker-compose to use the virtual machine to handle command
 
 After this first install, you might need to recreate your vm (for any reason). T o do that just run `vagrant destroy` and `vagrant up`
+
+`macOsConfig.sh` will finish the customisation of your local machine by setting the link between docker on your machine and docker engine on the virtual machine.
 
 ## Content of vm
 The vm use Official Ubuntu 20.04 LTS Focal Fossa, you can change it by editing `FROM_VAGRANT_BOX` param. Boxes for vagrant can be found here [vagrant-boxes](https://app.vagrantup.com/boxes/search)
